@@ -6,21 +6,21 @@ class MagischerSchmied {
     val raketenArmbrust = Schmied("Raketen Armbrust", 17)
     val klingen = Schmied("Klingen", 14)
     val linksPlasmaRakete = Schmied("Plasmarakete", 17)
-    fun schmied() {
+    fun schmied(): Int {
         val würfelergebnis = (1..6).random()
-        when(würfelergebnis) {
-            1 -> println(kettenSchwert.trefferstärkeErmittelnMagischerSchmied())
-            2 -> println(blaster.trefferstärkeErmittelnMagischerSchmied())
-            3 -> println(raketenArmbrust.trefferstärkeErmittelnMagischerSchmied())
+        return when(würfelergebnis) {
+            1 -> kettenSchwert.trefferstärkeErmittelnMagischerSchmied().toInt()
+            2 -> blaster.trefferstärkeErmittelnMagischerSchmied().toInt()
+            else -> raketenArmbrust.trefferstärkeErmittelnMagischerSchmied().toInt()
         }
     }
 
-    fun redfuhl() {
-    val würfelergebnis = (1..6).random()
-    when(würfelergebnis) {
-        4 -> println(klingen.trefferstärkeErmittelnMagischerSchmied())
-        5 -> println(blaster.trefferstärkeErmittelnMagischerSchmied())
-        3 -> println(linksPlasmaRakete.trefferstärkeErmittelnMagischerSchmied())
+    fun redfuhl(): Int {
+        val würfelergebnis = (1..6).random()
+        return when(würfelergebnis) {
+            4 -> klingen.trefferstärkeErmittelnMagischerSchmied().toInt()
+            5 -> blaster.trefferstärkeErmittelnMagischerSchmied().toInt()
+            else -> linksPlasmaRakete.trefferstärkeErmittelnMagischerSchmied().toInt()
+        }
     }
-}
 }

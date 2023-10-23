@@ -4,13 +4,23 @@ class Zauberer {
     private val nebelzauber = Magie("Nebelzauber", 10)
     private val eiszauber = Magie("Eiszauber", 12)
 
-    fun zaubern() {
+    /**fun zaubern(): Int {
         val würfelergebnis = (1..6).random()
-        when(würfelergebnis) {
-            1 -> println(sturm.trefferstärkeErmittelnMagie())
-            2 -> println(nebelzauber.trefferstärkeErmittelnMagie())
-            3 -> println(eiszauber.trefferstärkeErmittelnMagie())
-
+        return when(würfelergebnis) {
+            1 -> sturm.trefferstärkeErmittelnMagie().toInt()
+            2 -> nebelzauber.trefferstärkeErmittelnMagie().toInt()
+            else -> eiszauber.trefferstärkeErmittelnMagie().toInt()
         }
+    }*/
+    fun zaubern(): Int {
+        val würfelergebnis = (1..6).random()
+        val angriff = when(würfelergebnis) {
+            1 -> sturm
+            2 -> nebelzauber
+            else -> eiszauber
+        }
+        val stärke = angriff.trefferstärkeErmittelnMagie()
+        println("Die Würfelergebnis $würfelergebnis ist ${angriff.name} hat eine Stärke von $stärke")
+        return stärke
     }
 }
