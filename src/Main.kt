@@ -11,8 +11,12 @@ fun main() {
     val drache = Drache()
     drache.angreifen()
 
+    // Magischerschmied Movin
     println("Movin greift an")
     val magischerSchmied = MagischerSchmied()
     magischerSchmied.schmied()
+    // Zusatz Attacke Motorrad
+    println("Zusatz Attacke Motorrad")
+    magischerSchmied.redfuhl()
 }
 
