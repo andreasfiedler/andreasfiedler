@@ -10,4 +10,9 @@ fun main() {
     println("Dogahn greift an")
     val drache = Drache()
     drache.angreifen()
+
+    println("Movin greift an")
+    val magischerSchmied = MagischerSchmied()
+    magischerSchmied.angrif()
 }
+
