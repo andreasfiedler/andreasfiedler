@@ -13,6 +13,6 @@ fun main() {
 
     println("Movin greift an")
     val magischerSchmied = MagischerSchmied()
-    magischerSchmied.angrif()
+    magischerSchmied.schmied()
 }
 
