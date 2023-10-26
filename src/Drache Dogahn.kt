@@ -14,7 +14,7 @@ class Drache {
             3 -> tiefflug
             else -> luftangriff
         }
-        val stärke = angriff.trefferstärkeErmittelnMagie()
+        val stärke = angriff.trefferstärkeErmittelnDrache()
         println("Die Würfelergebnis $würfelergebnis ist ${angriff.name} hat eine Stärke von $stärke")
         return stärke
     }
