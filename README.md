@@ -26,4 +26,5 @@ Vorhut aus der Luft, so können Sie die nicht so leicht aufgespührt. Sie bewege
 auf den einzigen Weg nach Kleinau, Kleinau ist ein Zwergendorf in den Bergen.
 
 
-![Blackworlddrawio](https://github.com/andreasfiedler/andreasfiedler/assets/144686125/197f24b9-7dcf-45eb-8656-7257cddd01a1)
+![BlackWorld-2](https://github.com/andreasfiedler/andreasfiedler/assets/144686125/1234e5d7-a8e8-4e35-963c-d2a8e850cdd0)
+
