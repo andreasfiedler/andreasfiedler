@@ -24,3 +24,5 @@ Hause zubringen. Der Magische Schmied mit seinem Motorrad Redfuhl was so
 eineige Geheimnisse verbirgt. Frabo hebt mit dem Drachen Dogahn ab und bildet die
 Vorhut aus der Luft, so können Sie die nicht so leicht aufgespührt. Sie bewegen sich
 auf den einzigen Weg nach Kleinau, Kleinau ist ein Zwergendorf in den Bergen.
+
+Class Dieagram![Blackworld drawio](https://github.com/andreasfiedler/andreasfiedler/assets/144686125/0718f530-d4c4-45ec-a954-24efa4746b38)
