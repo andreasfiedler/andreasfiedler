@@ -1,6 +1,6 @@
 import kotlin.system.exitProcess
 
-class Schmied(name: String, stärke: Int, gesundheit: Int): Attacke(name, stärke, gesundheit)
+class Schmied(name: String, stärke: Int, gesundheit: Int): Held(name, stärke, gesundheit)
 
 class MagischerSchmied {
     val kettenSchwert = Schmied("KettenSchwert", 5, 100)

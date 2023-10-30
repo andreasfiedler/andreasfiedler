@@ -1,6 +1,6 @@
 import kotlin.system.exitProcess
 
-open class Attacke(val name: String, val stärke: Int, var gesundheit: Int) {
+open class Held(val name: String, val stärke: Int, var gesundheit: Int) {
     fun trefferstärkeErmittelnMagie(): Int {
         return (1..12).random()
     }

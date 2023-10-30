@@ -1,6 +1,6 @@
 import kotlin.system.exitProcess
 
-class Drachenangriff(name: String, stärke: Int, gesundheit: Int): Attacke(name, stärke, gesundheit)
+class Drachenangriff(name: String, stärke: Int, gesundheit: Int): Held(name, stärke, gesundheit)
 
 class Drache {
     private val feuerangriff = Drachenangriff("Feuerangriff", 10, 100)

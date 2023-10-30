@@ -1,6 +1,6 @@
 import kotlin.system.exitProcess
 
-class Magie(name: String, stärke: Int, gesundheit: Int): Attacke(name, stärke, gesundheit)
+class Magie(name: String, stärke: Int, gesundheit: Int): Held(name, stärke, gesundheit)
 class Zauberer {
     private val sturm = Magie("Sturm", 5, 100)
     private val nebelzauber = Magie("Nebelzauber", 10, 100)
