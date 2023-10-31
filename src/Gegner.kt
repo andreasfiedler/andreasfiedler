@@ -1,11 +1,11 @@
 import kotlin.random.Random
 
-open class Gegner(val name: String, var gesundheit: Int = 150) {
+open class Gegner(val name: String, var gesundheit: Int = 100) {
     var helferEingesetzt = false
 
     fun attack(): Int {
         // Zufällige Angriffsstärke zwischen 1 und 10
-        return Random.nextInt(1, 20)
+        return Random.nextInt(1, 35)
     }
 
     // Orgz verteidigt sich
@@ -19,7 +19,7 @@ open class Gegner(val name: String, var gesundheit: Int = 150) {
         if (!helferEingesetzt) {
             helferEingesetzt = true
             println("Orgz ruft Goblin zur Hilfe!")
-            return Random.nextInt(1, 11)
+            return Random.nextInt(1, 9)
         }
         return 0
     }

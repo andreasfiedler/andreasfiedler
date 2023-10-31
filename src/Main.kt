@@ -50,13 +50,13 @@ fun main() {
     println("Zusatz Attacke Motorrad")
     magischerSchmied.redfuhl()
     gesundheit.verletzungBewerten(magischerSchmied.redfuhl())*/
-    val helden = listOf(Held("Held1"), Held("Held2"), Held("Held3"))
+    val helden = listOf(Held("Frabo", 75), Held("Dogahn", 100), Held("Movin", 75), Held("redfuhl",35))
     val gegner = Gegner("Orgz")
 
     while (gegner.gesundheit > 0 && helden.any { it.gesundheit > 0 }) {
-        println("Wähle einen Helden aus (1-3):")
-        val auswahl = readLine()?.toIntOrNull()
-        if (auswahl in 1..3) {
+        println("Wähle einen Helden aus (1-4):")
+        val auswahl = readln()?.toIntOrNull()
+        if (auswahl in 1..4) {
             val held = helden[auswahl?.minus(1)!!]
             if (held.gesundheit <= 0) {
                 println("\u001b[31m${held.name} ist bereits besiegt.\u001b[0m")
@@ -82,9 +82,9 @@ fun main() {
     }
 
     if (gegner.gesundheit <= 0) {
-        println("Die Helden haben gewonnen!")
+        println("\u001b[34mDie Helden haben gewonnen!\u001b[0m")
     } else {
-        println("Orgz hat gewonnen!")
+        println("\u001b[33mOrgz hat gewonnen!\u001b[0m")
     }
 
 }
