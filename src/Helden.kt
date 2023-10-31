@@ -1,6 +1,8 @@
 import kotlin.system.exitProcess
 
 open class Held(val name: String, val stärke: Int, var gesundheit: Int) {
+
+    val heldList: List<String> = listOf("Zauberer", "Drache", "Magischer Schmid")
     fun trefferstärkeErmittelnMagie(): Int {
         return (1..12).random()
     }

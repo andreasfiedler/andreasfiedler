@@ -1,8 +1,11 @@
 import kotlin.system.exitProcess
 
-open class GegnerBlack (var name: String, var stärke: Int, var gesundheit: Int) {
+open class GegnerBlack(val name: String, val angriff: Int, val verteidigen: Int, val gesundheit: Int) {
+
+    val gegnerBlack: String = mutableListOf("Orgz" to 35, "Goblin" to 15).toString()
+
     fun verletzungBewerten(verletzung: Int) {
-        var gesundheit: Int = 100
+        var gesundheit: Int = 200
         when(verletzung) {
             in 2..3 -> println("Keine Verletzung")
             4 -> println("Streifschuss")
