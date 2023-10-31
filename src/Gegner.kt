@@ -1,5 +1,5 @@
 import kotlin.random.Random
-class Gegner(val name: String = "Orgz", var gesundheit: Int = 200) {
+class Gegner(val name: String = "Orgz", var gesundheit: Int = 250) {
     var helferEingesetzt = false
 
     fun attack(): Int {
