@@ -41,3 +41,10 @@ class MagischerSchmied {
         println("Nach dem Angriff hat der Orgz noch $gesundheit Gesundheitspunkte.")
     }
 }*/
+class Movin(name: String, gesundheit: Int) : Held(name, gesundheit) {
+    fun spezialFunktion() {
+        println("Movin verwendet seine Spezialfunktion!")
+    }
+}
+
+

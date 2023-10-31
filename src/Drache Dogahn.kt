@@ -36,3 +36,8 @@ class Drache {
         println("Nach dem Angriff hat der Orgz noch $gesundheit Gesundheitspunkte.")
     }
 }*/
+class Dogahn(name: String, gesundheit: Int) : Held(name, gesundheit) {
+    fun spezialFunktion() {
+        println("Dogahn verwendet seine Spezialfunktion!")
+    }
+}

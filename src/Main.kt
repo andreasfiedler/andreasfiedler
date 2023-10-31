@@ -50,10 +50,47 @@ fun main() {
     println("Zusatz Attacke Motorrad")
     magischerSchmied.redfuhl()
     gesundheit.verletzungBewerten(magischerSchmied.redfuhl())*/
+
     val helden = listOf(Held("Frabo", 75), Held("Dogahn", 100), Held("Movin", 75), Held("redfuhl",35))
-    val gegner = Gegner("Orgz")
+    val gegner = Gegner("Orgz", 1300)
+
 
     while (gegner.gesundheit > 0 && helden.any { it.gesundheit > 0 }) {
+        println("Wähle einen Helden aus (1-4):")
+        val readln = readln()
+        val auswahl = if (readln != null) readln.toIntOrNull() else null
+        if (auswahl in 1..4) {
+            val held = helden[auswahl?.minus(1)!!]
+            if (held.gesundheit <= 0) {
+                println("\u001b[31m${held.name} ist bereits besiegt.\u001b[0m")
+                continue
+            }
+            println("${held.name} greift an!")
+            for (i in 1..3) {
+                val damage = held.attack()
+                gegner.verteidigen(damage)
+                if (gegner.gesundheit <= 0) break
+            }
+            if (gegner.gesundheit > 0) {
+                println("Orgz greift an!")
+                val damage = gegner.attack()
+                held.verteidigen(damage)
+
+                val helferDamage = gegner.rufeHelfer()
+                held.verteidigen(helferDamage)
+            }
+        } else {
+            println("\u001b[35mUngültige Auswahl.\u001B[0m")
+        }
+    }
+
+    if (gegner.gesundheit <= 0) {
+        println("\u001b[34mDie Helden haben gewonnen!\u001b[0m")
+    } else {
+        println("\u001b[33mOrgz hat gewonnen!\u001b[0m")
+    }
+
+    /**while (gegner.gesundheit > 0 && helden.any { it.gesundheit > 0 }) {
         println("Wähle einen Helden aus (1-4):")
         val auswahl = readln()?.toIntOrNull()
         if (auswahl in 1..4) {
@@ -85,7 +122,7 @@ fun main() {
         println("\u001b[34mDie Helden haben gewonnen!\u001b[0m")
     } else {
         println("\u001b[33mOrgz hat gewonnen!\u001b[0m")
-    }
+    }*/
 
 }
 
