@@ -1,4 +1,4 @@
-class Orgz(name: String, angriff: Int, verteidigen: Int, gesundheit: Int): GegnerBlack(name, angriff, verteidigen, gesundheit) {
+/**class Orgz(name: String, angriff: Int, verteidigen: Int, gesundheit: Int): GegnerBlack(name, angriff, verteidigen, gesundheit) {
 
 
     fun helfer(herbeiRufen: String) {
@@ -6,4 +6,4 @@ class Orgz(name: String, angriff: Int, verteidigen: Int, gesundheit: Int): Gegne
         var herbeiRufen: String = Goblin().toString()
     }
 
-}
+}*/

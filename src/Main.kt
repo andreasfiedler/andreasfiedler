@@ -2,7 +2,7 @@ val RED = "\u001B[31m"
 fun main() {
 
     // Einleitung
-    println("Black World ist eine düstere Gegend wo nie ein normaler Mensch 4041 sich hin traut würde. Den hinter Ebene " +
+    println("\u001b[34m Black World ist eine düstere Gegend wo nie ein normaler Mensch 4041 sich hin traut würde. Den hinter Ebene " +
             "von Down Town fängt die Bergwelt an wo die Orgz und Goblins herrschen. Selbst die Zwerge vermeiden nach " +
             "Black World zu gehen. Die Black Orgz, sind kräftiger wie ein Panzer, so sagt man. Von dort ist noch keiner " +
             "zurückgekehrt, der je etwas berichten könnte. Doch im im Märzen 4041 ist die Tochter des Chefs vom Clan " +
@@ -20,14 +20,14 @@ fun main() {
             "drei begeben sich auf dem Weg um die Tochter des Chefs zu finden und nach Hause zubringen. Der Magische " +
             "Schmied mit seinem Motorrad Redfuhl was so eineige Geheimnisse verbirgt. Frabo hebt mit dem Drachen Dogahn " +
             "ab und bildet die Vorhut aus der Luft, so können Sie die nicht so leicht aufgespührt. Sie bewegen sich auf " +
-            "den einzigen Weg nach Kleinau, Kleinau ist ein Zwergendorf in den Bergen.")
+            "den einzigen Weg nach Kleinau, Kleinau ist ein Zwergendorf in den Bergen.\u001b[0m")
 
 
 
     // Hier folgen die Angriffe der Helden und es wird mit Würfeln ermittelt und dann erfolgt die Ermittlung der
     // zufälligen Stärke
 
-    val gesundheit = GegnerBlack("Orgz", 35, 15, 200 )
+    /** val gesundheit = GegnerBlack("Orgz", 35, 15, 200 )
 
     // Magier Frabo hat drei zauber
     println("Frabo greift an!")
@@ -49,8 +49,43 @@ fun main() {
     // Zusatz Attacke Motorrad
     println("Zusatz Attacke Motorrad")
     magischerSchmied.redfuhl()
-    gesundheit.verletzungBewerten(magischerSchmied.redfuhl())
+    gesundheit.verletzungBewerten(magischerSchmied.redfuhl())*/
+    val helden = listOf(Held("Held1"), Held("Held2"), Held("Held3"))
+    val gegner = Gegner("Orgz")
 
+    while (gegner.gesundheit > 0 && helden.any { it.gesundheit > 0 }) {
+        println("Wähle einen Helden aus (1-3):")
+        val auswahl = readLine()?.toIntOrNull()
+        if (auswahl in 1..3) {
+            val held = helden[auswahl?.minus(1)!!]
+            if (held.gesundheit <= 0) {
+                println("\u001b[31m${held.name} ist bereits besiegt.\u001b[0m")
+                continue
+            }
+            println("${held.name} greift an!")
+            for (i in 1..1) {
+                val damage = held.attack()
+                gegner.verteidigen(damage)
+                if (gegner.gesundheit <= 0) break
+            }
+            if (gegner.gesundheit > 0) {
+                println("Orgz greift an!")
+                val damage = gegner.attack()
+                held.verteidigen(damage)
+
+                val helferDamage = gegner.rufeHelfer()
+                held.verteidigen(helferDamage)
+            }
+        } else {
+            println("Ungültige Auswahl.")
+        }
+    }
+
+    if (gegner.gesundheit <= 0) {
+        println("Die Helden haben gewonnen!")
+    } else {
+        println("Orgz hat gewonnen!")
+    }
 
 }
 

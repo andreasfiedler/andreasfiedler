@@ -1,4 +1,4 @@
-import kotlin.system.exitProcess
+/**import kotlin.system.exitProcess
 
 class Drachenangriff(name: String, stärke: Int, gesundheit: Int): Held(name, stärke, gesundheit)
 
@@ -35,4 +35,4 @@ class Drache {
         gesundheit -= verletzung
         println("Nach dem Angriff hat der Orgz noch $gesundheit Gesundheitspunkte.")
     }
-}
+}*/

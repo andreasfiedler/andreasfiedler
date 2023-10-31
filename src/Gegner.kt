@@ -1,22 +1,27 @@
-import kotlin.system.exitProcess
+import kotlin.random.Random
 
-open class GegnerBlack(val name: String, val angriff: Int, val verteidigen: Int, val gesundheit: Int) {
+open class Gegner(val name: String, var gesundheit: Int = 150) {
+    var helferEingesetzt = false
 
-    val gegnerBlack: String = mutableListOf("Orgz" to 35, "Goblin" to 15).toString()
+    fun attack(): Int {
+        // Zufällige Angriffsstärke zwischen 1 und 10
+        return Random.nextInt(1, 20)
+    }
 
-    fun verletzungBewerten(verletzung: Int) {
-        var gesundheit: Int = 200
-        when(verletzung) {
-            in 2..3 -> println("Keine Verletzung")
-            4 -> println("Streifschuss")
-            in 5..6 -> println("Tiefe Wunde")
-            in 7..10 -> println("Schwer verletzt")
-            in 11..12 -> {
-                println("Tödliche Verletzung")
-                exitProcess(0)
-            }
+    // Orgz verteidigt sich
+    fun verteidigen(damage: Int) {
+        gesundheit -= damage
+        println("$name hat jetzt $gesundheit Gesundheitspunkte.")
+    }
+
+    // Orgz ruft Helfer
+    fun rufeHelfer(): Int {
+        if (!helferEingesetzt) {
+            helferEingesetzt = true
+            println("Orgz ruft Goblin zur Hilfe!")
+            return Random.nextInt(1, 11)
         }
-        gesundheit -= verletzung
-        println("Nach dem Angriff hat der Orgz noch $gesundheit Gesundheitspunkte.")
+        return 0
     }
 }
+
