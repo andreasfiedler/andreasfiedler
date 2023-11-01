@@ -15,7 +15,7 @@ class Gegner(val name: String = "Orgz", var gesundheit: Int = 350) {
     fun rufeHelfer(): Int {
         if (!helferEingesetzt) {
             helferEingesetzt = true
-            println("Orgz ruft Goblin zur Hilfe!")
+            println("$name ruft Goblin zur Hilfe!")
             return Random.nextInt(1, 11)
         }
         return 0

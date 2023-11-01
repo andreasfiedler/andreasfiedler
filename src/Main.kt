@@ -49,10 +49,10 @@ fun main() {
 
             if (runde % 3 == 0 && held is Frabo) {
                 println("Möchten Sie heilen? (j/n)")
-                val heilen = readLine()
+                val heilen = readln()
                 if (heilen == "j") {
                     println("Möchten Sie alle Helden heilen? (j/n)")
-                    val alleHeilen = readLine()
+                    val alleHeilen = readln()
                     if (alleHeilen == "j") {
                         held.heileAlle(helden)
                     } else {
@@ -68,12 +68,14 @@ fun main() {
 
             if (held.gesundheit > 0) {
                 val gegnerDamage = gegner.attack()
-                println("Orgz greift an und verursacht $gegnerDamage Schaden!")
+                println("${gegner.name} greift an und verursacht ${gegnerDamage} Schaden!")
 
                 held.verteidigen(gegnerDamage)
-                println("${held.name} hat jetzt ${held.gesundheit} Gesundheitspunkte.")
+
                 if (!gegner.helferEingesetzt) {
+
                     val helferDamage = gegner.rufeHelfer()
+                    println("Goblin greift an und verursacht ${helferDamage} Schaden!")
                     held.verteidigen(helferDamage)
                 }
             }

@@ -25,7 +25,7 @@ open class Held(val name: String, var gesundheit: Int) {
 
     fun verteidigen(damage: Int) {
         gesundheit -= damage
-        println("Orgz hat jetzt $gesundheit Gesundheitspunkte.")
+        println("$name hat jetzt $gesundheit Gesundheitspunkte.")
     }
 }
 
