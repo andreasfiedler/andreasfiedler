@@ -25,7 +25,6 @@ eineige Geheimnisse verbirgt. Frabo hebt mit dem Drachen Dogahn ab und bildet di
 Vorhut aus der Luft, so können Sie die nicht so leicht aufgespührt. Sie bewegen sich
 auf den einzigen Weg nach Kleinau, Kleinau ist ein Zwergendorf in den Bergen.
 
-
 ![BlackWorld-4](https://github.com/andreasfiedler/andreasfiedler/assets/144686125/613560c7-404f-48c8-ac8e-e94b6d40e411)
 
 

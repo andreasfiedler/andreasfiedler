@@ -23,7 +23,7 @@ fun main() {
     // Heldenliste
     val helden = listOf(
         Held("Frabo", 75),
-        Held("Dogahn", 100),
+        Held("Dogahn", 90),
         Held("Movin", 75),
         Held("Redfuhl",35)
     )
