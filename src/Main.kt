@@ -37,21 +37,24 @@ fun main() {
 
     // Momentan ohne zugriff auf die Einzelnen Heldeklassen
     // Aufruf der Helden mit Auswahl über readLine(), ab hier ist Kampfzone.
-    while (gegner.gesundheit > 0 && helden.any { it.gesundheit > 0 }) {
-        println("\u001b[93mWähle einen Helden aus (1-4):\u001b[0m")
+    while (gegner.gesundheit > 0 && helden.any { it.gesundheit > 0 }) { // Gesundheit wird geprüft
+        println("\u001b[93mWähle einen Helden aus (1-4):\u001b[0m") // Helden auswählen
         val auswahl = readln()?.toIntOrNull()
         if (auswahl in 1..4) {
             val held = helden[auswahl?.minus(1)!!]
-            if (held.gesundheit <= 0) {
-                println("\u001b[31m${held.name} ist bereits besiegt.\u001b[0m")
+            if (held.gesundheit <= 0) {  // Vorhandene Gesundheit wird geprüft
+                println("\u001b[31m${held.name} ist bereits besiegt.\u001b[0m") // Wenn Held keine Gesundheit mehr hat
+                                                                                // wird über continue eine neue Auswahl aufgerufen
                 continue
             }
-
-            if (runde % 3 == 0 && held is Frabo) {
+                // Wird nur aufgerufen, wenn 1 = Frabo ausgewählt wurde. Diese Verzweigung dient zum Heilen aller Helden.
+            if (runde % 5 == 0 && held is Frabo) {
+                // Abfragen Beginn zum Heilen
                 println("Möchten Sie heilen? (j/n)")
-                val heilen = readln()
+               val heilen = readln()
                 if (heilen == "j") {
-                    println("Möchten Sie alle Helden heilen? (j/n)")
+                    // Hier ist die Abfrage für alle Helden
+                    println("Möchten Sie alle Helden heilen? (j/n)") // Bei Eingabe 'n' wird nur der Zauberer geheilt
                     val alleHeilen = readln()
                     if (alleHeilen == "j") {
                         held.heileAlle(helden)
@@ -61,17 +64,16 @@ fun main() {
                     continue
                 }
             }
-
+            // Angriff des gewählten Helden
             val damage = held.attack()
-            // println("${held.name} greift an und verursacht $damage Schaden!")
             gegner.verteidigen(damage)
 
-            if (held.gesundheit > 0) {
+            if (held.gesundheit > 0) { // Gesundheitsabfrage held vor der gegner Attacke
                 val gegnerDamage = gegner.attack()
                 println("${gegner.name} greift an und verursacht ${gegnerDamage} Schaden!")
 
                 held.verteidigen(gegnerDamage)
-
+                // Wenn Gegner seisen Helfer gerufen hat
                 if (!gegner.helferEingesetzt) {
 
                     val helferDamage = gegner.rufeHelfer()
@@ -80,12 +82,12 @@ fun main() {
                 }
             }
         } else {
-            println("\u001b[35mUngültige Auswahl.\u001B[0m")
+            println("\u001b[35mUngültige Auswahl.\u001B[0m") // Ungültige Eingabe = leer oder größer als 4
         }
-
+        // Heilen wird nach einer Anzahl durchgeführt
         runde++
     }
-
+        // Spielende wenn Helden oder die Gegner keine Gesundheit haben!
     if (gegner.gesundheit <= 0) {
         println("\u001b[34mDie Helden haben gewonnen!\u001b[0m")
     } else {

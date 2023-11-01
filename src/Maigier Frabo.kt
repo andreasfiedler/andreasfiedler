@@ -33,7 +33,8 @@ class Frabo(name: String, gesundheit: Int) : Held(name, gesundheit) {
     override fun attack(): Int {
         // Wählt zufällig einen der Spezialangriffe aus
         val spezial = spezialAttacke.entries.random()
-        println("Frabo verwendet seine Spezialfunktion ${spezial.key} und verursacht einen Schaden von $d!")
+        //val schaden = spezialAttacke.entries.random()
+        println("Frabo verwendet seine Spezialfunktion ${spezial.key} ")
         return spezial.value
     }
 }

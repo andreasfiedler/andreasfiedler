@@ -1,5 +1,5 @@
 import kotlin.random.Random
-class Gegner(val name: String = "Orgz", var gesundheit: Int = 350) {
+class Gegner(val name: String = "Orgz", var gesundheit: Int = 340) {
     var helferEingesetzt = false
 
     fun attack(): Int {
@@ -7,11 +7,13 @@ class Gegner(val name: String = "Orgz", var gesundheit: Int = 350) {
         return Random.nextInt(1, 11)
     }
 
+    // Verteidigung und Gesundheit
     fun verteidigen(damage: Int) {
         gesundheit -= damage
         println("$name hat jetzt $gesundheit Gesundheitspunkte.")
     }
 
+    // Helfer rufen
     fun rufeHelfer(): Int {
         if (!helferEingesetzt) {
             helferEingesetzt = true
