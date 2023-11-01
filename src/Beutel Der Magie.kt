@@ -1,7 +1,1 @@
-class Beutel(heilen: String, staerke: Int, zauber: String, treffer: Int){
-
-}
-
-
-
-
+class Beutel(var heilen: String, var staerke: Int, var zauber: String, var treffer: Int)

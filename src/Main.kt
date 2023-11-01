@@ -29,6 +29,7 @@ fun main() {
     )
     // Zugriff über Klasse Gegner
     var gegner = Gegner()
+    var runde = 0 // Runden - Umlauf für die Heilung aller drei Runden
 
     // Momentan ohne zugriff auf die Einzelnen Heldeklassen
     // Aufruf der Helden mit Auswahl über readLine(), ab hier ist Kampfzone.
@@ -36,14 +37,29 @@ fun main() {
         println("\u001b[93mWähle einen Helden aus (1-4):\u001b[0m")
         val auswahl = readln()?.toIntOrNull()
         if (auswahl in 1..4) {
-            val held = helden[auswahl?.minus(1)!!]// Null ausschließen
+            val held = helden[auswahl - 1]
             if (held.gesundheit <= 0) {
-                println("\u001b[31m${held.name} ist bereits besiegt.\u001b[0m") // Ausgabe, wenn Held keine
-                                                                                // Gesundheitspunkte mehr hat!
+                println("\u001b[31m${held.name} ist bereits besiegt.\u001b[0m")
                 continue
             }
+
+            if (runde % 3 == 0 && held is Frabo) {
+                println("Möchten Sie heilen? (j/n)")
+                val heilen = readLine()
+                if (heilen == "j") {
+                    println("Möchten Sie alle Helden heilen? (j/n)")
+                    val alleHeilen = readLine()
+                    if (alleHeilen == "j") {
+                        held.heileAlle(helden)
+                    } else {
+                        held.heilen(held)
+                    }
+                    continue
+                }
+            }
+
             val damage = held.attack()
-            println("${held.name} greift an und verursacht $damage Schaden!")  // Gewählter Held greift an. Zeigt den verursachten Schaden an.
+            println("${held.name} greift an und verursacht $damage Schaden!")
             gegner.verteidigen(damage)
 
             if (gegner.gesundheit > 0) {
@@ -59,6 +75,8 @@ fun main() {
         } else {
             println("\u001b[35mUngültige Auswahl.\u001B[0m")
         }
+
+        runde++
     }
 
     if (gegner.gesundheit <= 0) {
