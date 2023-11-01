@@ -1,3 +1,5 @@
+import kotlin.random.Random
+
 fun main() {
             // Einführung
     println("\u001b[34m Black World ist eine düstere Gegend wo nie ein normaler Mensch 4041 sich hin traut würde. Den hinter Ebene " +
@@ -81,6 +83,7 @@ fun main() {
                     held.verteidigen(helferDamage)
                 }
             }
+
         } else {
             println("\u001b[35mUngültige Auswahl.\u001B[0m") // Ungültige Eingabe = leer oder größer als 4
         }
