@@ -22,14 +22,18 @@ fun main() {
 
     // Heldenliste
     val helden = listOf(
-        Held("Frabo", 75),
+        Frabo("Frabo", 75),
         Held("Dogahn", 90),
         Held("Movin", 75),
         Held("Redfuhl",35)
     )
+
     // Zugriff über Klasse Gegner
     var gegner = Gegner()
-    var runde = 0 // Runden - Umlauf für die Heilung aller drei Runden
+
+    // Runden - Umlauf für die Heilung aller drei Runden
+    var runde = 0
+
 
     // Momentan ohne zugriff auf die Einzelnen Heldeklassen
     // Aufruf der Helden mit Auswahl über readLine(), ab hier ist Kampfzone.
@@ -37,7 +41,7 @@ fun main() {
         println("\u001b[93mWähle einen Helden aus (1-4):\u001b[0m")
         val auswahl = readln()?.toIntOrNull()
         if (auswahl in 1..4) {
-            val held = helden[auswahl - 1]
+            val held = helden[auswahl?.minus(1)!!]
             if (held.gesundheit <= 0) {
                 println("\u001b[31m${held.name} ist bereits besiegt.\u001b[0m")
                 continue
@@ -59,14 +63,15 @@ fun main() {
             }
 
             val damage = held.attack()
-            println("${held.name} greift an und verursacht $damage Schaden!")
+            // println("${held.name} greift an und verursacht $damage Schaden!")
             gegner.verteidigen(damage)
 
-            if (gegner.gesundheit > 0) {
-                println("Orgz greift an und verursacht $damage Schaden!")
+            if (held.gesundheit > 0) {
                 val gegnerDamage = gegner.attack()
-                held.verteidigen(gegnerDamage)
+                println("Orgz greift an und verursacht $gegnerDamage Schaden!")
 
+                held.verteidigen(gegnerDamage)
+                println("${held.name} hat jetzt ${held.gesundheit} Gesundheitspunkte.")
                 if (!gegner.helferEingesetzt) {
                     val helferDamage = gegner.rufeHelfer()
                     held.verteidigen(helferDamage)
