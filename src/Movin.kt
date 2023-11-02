@@ -1,10 +1,5 @@
 
 class Movin(name: String, gesundheit: Int) : Held(name, gesundheit) {
-    constructor(name: String, gesundheit: Int, spezialFunktion: MutableMap<String, Int> ) : this(name, gesundheit) {
-
-    }
-
-
 
         val spezialAttacke: MutableMap<String, Int> = mutableMapOf(
         "Kettenschwert" to 10,
