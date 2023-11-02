@@ -10,6 +10,7 @@ class Movin(name: String, gesundheit: Int) : Held(name, gesundheit) {
         "Kettenschwert" to 10,
         "Blaster Kanone" to 15,
         "Raketen Armbrust" to 30
+
     )
 
 
