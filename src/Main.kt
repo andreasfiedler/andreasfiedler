@@ -1,4 +1,4 @@
-import kotlin.random.Random
+
 
 fun main() {
             // Einführung
@@ -26,7 +26,7 @@ fun main() {
     val helden = listOf(
         Frabo("Frabo", 75),
         Held("Dogahn", 90),
-        Held("Movin", 75),
+        Movin("Movin", 75),
         Held("Redfuhl",35)
     )
 
@@ -50,7 +50,7 @@ fun main() {
                 continue
             }
                 // Wird nur aufgerufen, wenn 1 = Frabo ausgewählt wurde. Diese Verzweigung dient zum Heilen aller Helden.
-            if (runde % 5 == 0 && held is Frabo) {
+            if (runde % 3 == 0 && held is Frabo) {
                 // Abfragen Beginn zum Heilen
                 println("Möchten Sie heilen? (j/n)")
                val heilen = readln()
@@ -65,6 +65,7 @@ fun main() {
                     }
                     continue
                 }
+
             }
             // Angriff des gewählten Helden
             val damage = held.attack()

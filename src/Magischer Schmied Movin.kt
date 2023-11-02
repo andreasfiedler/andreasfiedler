@@ -1,49 +1,25 @@
-/**import kotlin.system.exitProcess
 
-class Schmied(name: String, stärke: Int, gesundheit: Int): Held(name, stärke, gesundheit)
-
-class MagischerSchmied {
-    val kettenSchwert = Schmied("KettenSchwert", 5, 100)
-    val blaster = Schmied("Blaster Kanone", 15, 100)
-    val raketenArmbrust = Schmied("Raketen Armbrust", 17, 100)
-    val klingen = Schmied("Klingen", 14, 100)
-    val linksPlasmaRakete = Schmied("Plasmarakete", 17, 100)
-    fun schmied(): Int {
-        val würfelergebnis = (1..6).random()
-        return when(würfelergebnis) {
-            1 -> kettenSchwert.trefferstärkeErmittelnMagischerSchmied()
-            2 -> blaster.trefferstärkeErmittelnMagischerSchmied()
-            else -> raketenArmbrust.trefferstärkeErmittelnMagischerSchmied()
-        }
-    }
-
-    fun redfuhl(): Int {
-        val würfelergebnis = (1..6).random()
-        return when(würfelergebnis) {
-            4 -> klingen.trefferstärkeErmittelnMagischerSchmied()
-            5 -> blaster.trefferstärkeErmittelnMagischerSchmied()
-            else -> linksPlasmaRakete.trefferstärkeErmittelnMagischerSchmied()
-        }
-    }
-    fun verletzungBerechnen(verletzung: Int) {
-        var gesundheit: Int = 100
-        when(verletzung) {
-            in 2..3 -> println("Keine Verletzung")
-            4 -> println("Streifschuss")
-            in 5..6 -> println("Tiefe Wunde")
-            in 7..10 -> println("Schwer verletzt")
-            in 11..12 -> {
-                println("Tödliche Verletzung")
-                exitProcess(0)
-            }
-        }
-        gesundheit -= verletzung
-        println("Nach dem Angriff hat der Orgz noch $gesundheit Gesundheitspunkte.")
-    }
-}*/
 class Movin(name: String, gesundheit: Int) : Held(name, gesundheit) {
-    fun spezialFunktion() {
-        println("Movin verwendet seine Spezialfunktion!")
+    constructor(name: String, gesundheit: Int, spezialFunktion: MutableMap<String, Int> ) : this(name, gesundheit) {
+
+    }
+
+
+    fun spezialAttacke() {
+        val spezialAttack: MutableMap<String, Int> = mutableMapOf(
+        "Kettenschwert" to 10,
+        "Blaster Kanone" to 15,
+        "Raketen Armbrust" to 30
+    )
+        //println("$name verwendet seine Spezialfunktion ${spezialAttacke}!")
+    }
+
+    override fun attack(): Int {
+
+        //val spezial = spezialAttacke().entries.random()
+        //val schaden = spezialAttacke.entries.random()
+        println("$name verwendet seine Spezialfunktion ${spezialAttacke()} ")
+        return super.attack()
     }
 }
 
