@@ -1,7 +1,3 @@
-import kotlin.random.Random
-
-
-
 /**open class Held(val name: String, var gesundheit: Int) {
 
     open fun attack(): Int {
