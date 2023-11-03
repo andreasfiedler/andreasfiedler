@@ -28,9 +28,9 @@ fun main() {
     // Heldenliste
     val helden = listOf(
         Frabo("Frabo", 75),
-        Held("Dogahn", 90),
-        Movin("Movin", 75),
-        Held("Redfuhl", 35)
+        Held("Dogahn", 50),
+        Movin("Movin", 40),
+        Held("Redfuhl", 25)
     )
 
 // Zugriff über Klasse Gegner
