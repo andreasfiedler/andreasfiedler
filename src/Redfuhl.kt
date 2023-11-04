@@ -1,9 +1,9 @@
 class Redfuhl(name: String, gesundheit: Int) : Held(name, gesundheit) {
     override val beutel = Beutel("Heilzauber", 5, "Zauber", 30)
     val spezialAttacke = mutableMapOf(
-        "eiszauber" to 12,
-        "nebelzauber" to 12,
-        "feuerBall" to 30
+        "Plasma Kanone" to 95,
+        "Rad Klingen" to 12,
+        "Plasma Rakete" to 80
     )
 
     override fun attack(): Int {

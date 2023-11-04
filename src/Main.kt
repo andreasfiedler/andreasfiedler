@@ -1,6 +1,9 @@
+import java.util.*
 
 
 fun main() {
+
+
 
     // Einführung
     println(
@@ -22,7 +25,7 @@ fun main() {
                 "drei begeben sich auf dem Weg um die Tochter des Chefs zu finden und nach Hause zubringen. Der Magische " +
                 "Schmied mit seinem Motorrad Redfuhl was so eineige Geheimnisse verbirgt. Frabo hebt mit dem Drachen Dogahn " +
                 "ab und bildet die Vorhut aus der Luft, so können Sie die nicht so leicht aufgespührt. Sie bewegen sich auf " +
-                "den einzigen Weg nach Kleinau, Kleinau ist ein Zwergendorf in den Bergen.\u001b[0m"
+                "den einzigen Weg nach Kleinau, Kleinau ist ein Zwergendorf in den Bergen.\n Wir starten jetzt in 5 Sekunden! \u001b[0m"
     )
 
     // Heldenliste
@@ -39,6 +42,10 @@ fun main() {
 // Runden - Umlauf für die Heilung aller drei Runden
     var runde = 0
 
+
+
+    // Hier beginnt der Kampf
+
     while (gegner.gesundheit > 0 && helden.any { it.gesundheit > 0 }) {
         println("\u001b[93mWähle einen Helden aus (1-4):\u001b[0m")
 
@@ -53,17 +60,19 @@ fun main() {
             }
 
             // Anwenden der Verstärkung
-            val verstaerkung = held.beutel.verstaerkung(10) // Ersetzen Sie 10 durch den gewünschten Wert
+            val verstaerkung = held.beutel.verstaerkung(4)
             println("${held.name} hat eine Verstärkung von $verstaerkung erhalten.")
 
+                // Hier beginnt die Heilung aus dem eigenen Beutel3
             if (runde % 3 == 0 && held is Frabo) {
-                println("Möchten Sie heilen? (j/n)")
+                println("Möchten Sie heilen? (j/n)")  // Abfrage zur Heilung
                 val heilen = readln()
 
                 if (heilen == "j") {
+                    // Alle Helden Heilen
                     println("Möchten Sie alle Helden heilen? (j/n)")
                     val alleHeilen = readln()
-
+                    // Alle werden geheilt, außer bei Eingabe 'n' wird nur Der Frabo geheilt Ausgabe in Zeile
                     if (alleHeilen == "j") {
                         held.heileAlle(helden)
                     } else {
@@ -100,4 +109,22 @@ fun main() {
     } else {
         println("\u001b[33mOrgz hat gewonnen!\u001b[0m")
     }
+
+    //Start Countdown
+    val timer = Timer()
+    var seconds = 3 // Die Anzahl der Sekunden für den Countdown
+
+    timer.scheduleAtFixedRate(object : TimerTask() {
+        override fun run() {
+            if (seconds < 1) {
+                timer.cancel()
+            } else {
+                println("$seconds Sekunden verbleiben zum Neustart.")
+                seconds--
+            }
+        }
+    }, 0, 5000)
+
+    println(" Das Spiel ist beendet! ")
+
 }

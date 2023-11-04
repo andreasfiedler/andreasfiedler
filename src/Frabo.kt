@@ -1,5 +1,5 @@
 
-class Frabo(name: String, gesundheit: Int) : Held(name, gesundheit) {
+ class Frabo(name: String, gesundheit: Int) : Held(name, gesundheit) {
     override val beutel = Beutel("Heilzauber", 5, "Zauber", 30)
     val spezialAttacke = mutableMapOf(
         "eiszauber" to 12,
@@ -32,7 +32,7 @@ class Frabo(name: String, gesundheit: Int) : Held(name, gesundheit) {
         // Wählt zufällig einen der Spezialangriffe aus
         val spezial = spezialAttacke.entries.random()
         //val schaden = spezialAttacke.entries.random()
-        println("Frabo verwendet seine Spezialfunktion ${spezial.key} ")
+        println("$name verwendet seine Spezialfunktion ${spezial.key} ")
         return spezial.value
     }
 }
