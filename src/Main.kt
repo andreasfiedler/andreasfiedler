@@ -112,14 +112,14 @@ fun main() {
 
     //Start Countdown
     val timer = Timer()
-    var seconds = 3 // Die Anzahl der Sekunden für den Countdown
+    var seconds = 3 // Die Anzahl der Sekunden für den verbleibenden Countdown
 
     timer.scheduleAtFixedRate(object : TimerTask() {
         override fun run() {
             if (seconds < 1) {
                 timer.cancel()
             } else {
-                println("$seconds Sekunden verbleiben zum Neustart.")
+                print("\r$seconds")
                 seconds--
             }
         }
