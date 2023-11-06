@@ -1,5 +1,4 @@
 import Enums.Schwierigkeit
-import Enums.schwierigkeitFromIndex
 import java.util.*
 
 
@@ -39,7 +38,8 @@ fun main() {
         override fun run() {
             if (seconds < 1) {
                 timer.cancel()
-                println("Wählen sie Ihre Schwierigkeit:")
+                println("Bitte wählen Sie eine Schwierigkeitsstufe (Leicht, Mittel, Schwer):")
+
             } else {
                 println("$seconds")
                 seconds--
@@ -50,10 +50,22 @@ fun main() {
 
 
     // Eingabe Schwiergikeitsstufe
+    val input = readln()
+    var selectedDifficulty = Schwierigkeit.MITTEL
+     if (input == "Leicht") {
+         selectedDifficulty = Schwierigkeit.LEICHT
+     } else if (input == "Mittel") {
+         selectedDifficulty = Schwierigkeit.MITTEL
+     } else if (input == "Schwer") {
+         selectedDifficulty = Schwierigkeit.SCHWER
+     }
 
 
-    var schwierigkeit: Schwierigkeit = schwierigkeitFromIndex(readln().toInt())
-    println("Sie haben die Schwierigkeit $schwierigkeit gewählt.")
+    println("Du hast die Schwierigkeitsstufe ${selectedDifficulty.getDescription()} ausgewählt.")
+    val multiplier = selectedDifficulty.getDifficultyMultiplier()
+    println("Der Schwierigkeitsmultiplikator beträgt $multiplier")
+    //var schwierigkeit: Schwierigkeit = schwierigkeitFromIndex(readln().toInt())
+    //println("Sie haben die Schwierigkeit $schwierigkeit gewählt.")
 
     // Heldenliste
     val helden = listOf(
@@ -73,7 +85,7 @@ fun main() {
 
     // Hier beginnt der Kampf
 
-    while (gegner.gesundheit > 0 && helden.any { it.gesundheit > 0 }) {
+    while (gegner.gesundheit > 0 && helden.all { it.gesundheit > 0 }) {
         println("\u001b[93mWähle einen Helden aus (1-4):\u001b[0m")
 
         val auswahl = readln()?.toIntOrNull()
