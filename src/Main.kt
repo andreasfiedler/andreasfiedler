@@ -4,19 +4,15 @@ import java.util.*
 
 fun main() {
     // Farbauswahl
-    val red = "\u001B[31m"
-    val green = "\u001B[32m"
-    val yellow = "\u001B[33m"
+
     val blue = "\u001B[34m"
-    val magenta = "\u001B[35m"
     val cyan = "\u001B[36m"
     val bold = "\u001B[1m"
     val underline = "\u001B[4m"
-    val backgroundYellow = "\u001B[43m"
-    // Farbe zurücksetzten
+    // Verwendete Werte zurücksetzten
     val reset = "\u001B[0m"
 
-    // Einführung
+    // Geschichte aus 40.000
     println(
         "${blue}  Black World ist eine düstere Gegend wo nie ein normaler Mensch 4041 sich hin traut würde. Den hinter Ebene " +
                 "von Down Town fängt die Bergwelt an wo die Orgz und Goblins herrschen. Selbst die Zwerge vermeiden nach " +
@@ -40,7 +36,7 @@ fun main() {
     )
 
 
-    // Start Timer
+    // Start Timer, Timer ist Versuchsweise ein gebaut.
     val timer = Timer()
     var seconds = 5 // Die Anzahl der Sekunden für den Countdown
 
@@ -48,7 +44,7 @@ fun main() {
         override fun run() {
             if (seconds < 1) {
                 timer.cancel()
-                println("${bold} Bitte wählen Sie eine Schwierigkeitsstufe (Leicht, Mittel, Schwer):${reset}")
+                println("${bold} Bitte wählen Sie eine Schwierigkeitsstufe (Leicht, Mittel, Schwer):${reset}") // Aufforderung zur Auswahl der Schwierigkeitsstufe nach Ablauf der Zeit
 
             } else {
                 println("$seconds")
@@ -61,6 +57,7 @@ fun main() {
 
     // Eingabe Schwiergikeitsstufe
     val input = readln()
+    // Nach der Auswahl erfolgt ein Aufruf über Schwierigkeit
     var selectedDifficulty = Schwierigkeit.MITTEL
      if (input == "Leicht") {
          selectedDifficulty = Schwierigkeit.LEICHT
@@ -74,8 +71,6 @@ fun main() {
     println("Du hast die Schwierigkeitsstufe ${selectedDifficulty.getDescription()} ausgewählt.")
     val multiplier = selectedDifficulty.getDifficultyMultiplier()
     println("Der Schwierigkeitsmultiplikator beträgt $multiplier")
-    //var schwierigkeit: Schwierigkeit = schwierigkeitFromIndex(readln().toInt())
-    //println("Sie haben die Schwierigkeit $schwierigkeit gewählt.")
 
     // Heldenliste
     val helden = listOf(
@@ -94,7 +89,7 @@ fun main() {
 
 
     // Hier beginnt der Kampf
-
+    // Es erfolg auf mehrere Klassen ein Zugriff zum Beispiel auf zugriff auf Beutel von Frabos interen Beutel mit den Funktionen heilen
     while (gegner.gesundheit > 0 && helden.all { it.gesundheit > 0 }) {
         println("\u001b[93mWähle einen Helden aus (1-4):\u001b[0m")
 
@@ -108,13 +103,13 @@ fun main() {
                 continue
             }
 
-            // Anwenden der Verstärkung
+            // Anwenden der Verstärkung. Wird nur aller 4 Runden angewendet. Aufgerufen aus Beutel
             if (runde % 4 == 0 && held is Held) {
                 val verstaerkung = held.beutel.verstaerkung(2)
                 println("${held.name} hat eine Verstärkung von $verstaerkung erhalten.")
             }
-                // Hier beginnt die Heilung aus dem eigenen Beutel3
-            if (runde % 3 == 0 && held is Frabo) {
+                // Hier beginnt die Heilung aus dem eigenen Beutel
+            if (runde % 3 == 0 && held is Frabo) { //Rundenzähler
                 println("Möchten Sie heilen? (j/n)")  // Abfrage zur Heilung
                 val heilen = readln()
 
