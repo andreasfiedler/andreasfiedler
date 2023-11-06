@@ -3,12 +3,22 @@ import java.util.*
 
 
 fun main() {
-
-
+    // Farbauswahl
+    val red = "\u001B[31m"
+    val green = "\u001B[32m"
+    val yellow = "\u001B[33m"
+    val blue = "\u001B[34m"
+    val magenta = "\u001B[35m"
+    val cyan = "\u001B[36m"
+    val bold = "\u001B[1m"
+    val underline = "\u001B[4m"
+    val backgroundYellow = "\u001B[43m"
+    // Farbe zurücksetzten
+    val reset = "\u001B[0m"
 
     // Einführung
     println(
-        "\u001b[34m Black World ist eine düstere Gegend wo nie ein normaler Mensch 4041 sich hin traut würde. Den hinter Ebene " +
+        "${blue}  Black World ist eine düstere Gegend wo nie ein normaler Mensch 4041 sich hin traut würde. Den hinter Ebene " +
                 "von Down Town fängt die Bergwelt an wo die Orgz und Goblins herrschen. Selbst die Zwerge vermeiden nach " +
                 "Black World zu gehen. Die Black Orgz, sind kräftiger wie ein Panzer, so sagt man. Von dort ist noch keiner " +
                 "zurückgekehrt, der je etwas berichten könnte. Doch im im Märzen 4041 ist die Tochter des Chefs vom Clan " +
@@ -26,19 +36,19 @@ fun main() {
                 "drei begeben sich auf dem Weg um die Tochter des Chefs zu finden und nach Hause zubringen. Der Magische " +
                 "Schmied mit seinem Motorrad Redfuhl was so eineige Geheimnisse verbirgt. Frabo hebt mit dem Drachen Dogahn " +
                 "ab und bildet die Vorhut aus der Luft, so können Sie die nicht so leicht aufgespührt. Sie bewegen sich auf " +
-                "den einzigen Weg nach Kleinau, Kleinau ist ein Zwergendorf in den Bergen.\n Wir starten jetzt in 5 Sekunden! \u001b[0m"
+                "den einzigen Weg nach Kleinau, Kleinau ist ein Zwergendorf in den Bergen.\n ${underline}${cyan}Wir starten jetzt in 5 Sekunden! ${reset}"
     )
 
-    println(" Das Spiel Startet in! ")
+
     // Start Timer
     val timer = Timer()
-    var seconds = 3 // Die Anzahl der Sekunden für den verbleibenden Countdown
+    var seconds = 5 // Die Anzahl der Sekunden für den Countdown
 
     timer.scheduleAtFixedRate(object : TimerTask() {
         override fun run() {
             if (seconds < 1) {
                 timer.cancel()
-                println("Bitte wählen Sie eine Schwierigkeitsstufe (Leicht, Mittel, Schwer):")
+                println("${bold} Bitte wählen Sie eine Schwierigkeitsstufe (Leicht, Mittel, Schwer):${reset}")
 
             } else {
                 println("$seconds")
@@ -99,9 +109,10 @@ fun main() {
             }
 
             // Anwenden der Verstärkung
-            val verstaerkung = held.beutel.verstaerkung(4)
-            println("${held.name} hat eine Verstärkung von $verstaerkung erhalten.")
-
+            if (runde % 4 == 0 && held is Held) {
+                val verstaerkung = held.beutel.verstaerkung(2)
+                println("${held.name} hat eine Verstärkung von $verstaerkung erhalten.")
+            }
                 // Hier beginnt die Heilung aus dem eigenen Beutel3
             if (runde % 3 == 0 && held is Frabo) {
                 println("Möchten Sie heilen? (j/n)")  // Abfrage zur Heilung

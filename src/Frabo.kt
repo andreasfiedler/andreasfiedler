@@ -29,11 +29,10 @@
     }
     // Angriffe aus Methode oben
     override fun attack(): Int {
-        // Wählt zufällig einen der Spezialangriffe aus
         val spezial = spezialAttacke.entries.random()
-        //val schaden = spezialAttacke.entries.random()
         println("$name verwendet seine Spezialfunktion ${spezial.key} ")
-        return spezial.value
+        val verstaerkung = beutel.verstaerkung(spezial.value)
+        return verstaerkung
     }
 }
 
