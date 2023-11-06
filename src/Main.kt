@@ -1,3 +1,5 @@
+import Enums.Schwierigkeit
+import Enums.schwierigkeitFromIndex
 import java.util.*
 
 
@@ -28,12 +30,37 @@ fun main() {
                 "den einzigen Weg nach Kleinau, Kleinau ist ein Zwergendorf in den Bergen.\n Wir starten jetzt in 5 Sekunden! \u001b[0m"
     )
 
+    println(" Das Spiel Startet in! ")
+    // Start Timer
+    val timer = Timer()
+    var seconds = 3 // Die Anzahl der Sekunden für den verbleibenden Countdown
+
+    timer.scheduleAtFixedRate(object : TimerTask() {
+        override fun run() {
+            if (seconds < 1) {
+                timer.cancel()
+                println("Wählen sie Ihre Schwierigkeit:")
+            } else {
+                println("$seconds")
+                seconds--
+            }
+        }
+    }, 0, 1000)
+
+
+
+    // Eingabe Schwiergikeitsstufe
+
+
+    var schwierigkeit: Schwierigkeit = schwierigkeitFromIndex(readln().toInt())
+    println("Sie haben die Schwierigkeit $schwierigkeit gewählt.")
+
     // Heldenliste
     val helden = listOf(
         Frabo("Frabo", 75),
-        Held("Dogahn", 50),
+        Held("Dogahn", 85),
         Movin("Movin", 40),
-        Held("Redfuhl", 25)
+        Held("Redfuhl", 35)
     )
 
 // Zugriff über Klasse Gegner
@@ -109,22 +136,4 @@ fun main() {
     } else {
         println("\u001b[33mOrgz hat gewonnen!\u001b[0m")
     }
-
-    //Start Countdown
-    val timer = Timer()
-    var seconds = 3 // Die Anzahl der Sekunden für den verbleibenden Countdown
-
-    timer.scheduleAtFixedRate(object : TimerTask() {
-        override fun run() {
-            if (seconds < 1) {
-                timer.cancel()
-            } else {
-                print("\r$seconds")
-                seconds--
-            }
-        }
-    }, 0, 5000)
-
-    println(" Das Spiel ist beendet! ")
-
 }
