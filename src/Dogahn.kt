@@ -1,6 +1,5 @@
 class Dogahn(name: String, gesundheit: Int) : Held(name, gesundheit) {
-    // Zugriff auf den Heilzauber von Frabo
-    override val beutel = Beutel("Heilzauber", 15, "Zauber", 30)
+
     // Attacken werden aufgerufen
     val spezialAttacke = mutableMapOf(
         "Eisiger Atem" to 12,
