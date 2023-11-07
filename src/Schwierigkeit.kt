@@ -40,7 +40,7 @@ enum class Schwierigkeit {
     // Dieser wird in der Main aufgerufen.
     abstract fun getDifficultyMultiplier(): Double
     // Diese abstrackte Funktion greift auf die Multiplikatoren zu, von LEICHT, MITTEL und SCHWER und erhält den Wert String
-    // Dieser wird in der Main aufgerufen.
+    // dieser wird in der Main aufgerufen.
     abstract fun getDescription(): String
 
 }

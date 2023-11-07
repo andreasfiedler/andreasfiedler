@@ -5,7 +5,9 @@ import java.util.*
 fun main() {
     // Farbauswahl
 
+    val yellow = "\u001B[33m"
     val blue = "\u001B[34m"
+    val magenta = "\u001B[35m"
     val cyan = "\u001B[36m"
     val bold = "\u001B[1m"
     val underline = "\u001B[4m"
@@ -95,7 +97,7 @@ fun main() {
     // Hier beginnt der Kampf
     // Es erfolg auf mehrere Klassen ein Zugriff zum Beispiel auf zugriff auf Beutel von Frabos interen Beutel mit den Funktionen heilen
     while (gegner.gesundheit > 0 && helden.any { it.gesundheit > 0 }) {
-        println("\u001b[93mWähle einen Helden aus (1-4):\u001b[0m")
+        println("$yellow Wähle einen Helden aus (1-4):$reset")
 
         val auswahl = readln()?.toIntOrNull()
 
@@ -144,15 +146,15 @@ fun main() {
                 }
             }
         } else {
-            println("\u001b[35mUngültige Auswahl.\u001B[0m")
+            println("$magenta Ungültige Auswahl.$reset")
         }
 
         runde++
     }
 
-    if (gegner.gesundheit <= 0) {
-        println("\u001b[34mDie Helden haben gewonnen!\u001b[0m")
+    if (gegner.gesundheit <= 0) { // Hat der Gegner keine Gesundheitspunkte, wir diese Meldung ausgegeben
+        println("$blue Die Helden haben gewonnen!$reset")
     } else {
-        println("\u001b[33mOrgz hat gewonnen!\u001b[0m")
+        println("$yellow Orgz hat gewonnen!$reset")
     }
 }
