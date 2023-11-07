@@ -44,7 +44,8 @@ fun main() {
         override fun run() {
             if (seconds < 1) {
                 timer.cancel()
-                println("${bold} Bitte wählen Sie eine Schwierigkeitsstufe (Leicht, Mittel, Schwer):${reset}") // Aufforderung zur Auswahl der Schwierigkeitsstufe nach Ablauf der Zeit
+                // Aufforderung zur Auswahl der Schwierigkeitsstufe nach Ablauf der Zeit
+                println("${bold} Bitte wählen Sie eine Schwierigkeitsstufe (Leicht, Mittel, Schwer):${reset}")
 
             } else {
                 println("$seconds")
@@ -58,7 +59,8 @@ fun main() {
     // Eingabe Schwiergikeitsstufe
     val input = readln()
     // Nach der Auswahl erfolgt ein Aufruf über Schwierigkeit
-    var selectedDifficulty = Schwierigkeit.MITTEL
+    var selectedDifficulty = Schwierigkeit.LEICHT
+
      if (input == "Leicht") {
          selectedDifficulty = Schwierigkeit.LEICHT
      } else if (input == "Mittel") {
@@ -69,14 +71,16 @@ fun main() {
 
 
     println("Du hast die Schwierigkeitsstufe ${selectedDifficulty.getDescription()} ausgewählt.")
+
     val multiplier = selectedDifficulty.getDifficultyMultiplier()
     println("Der Schwierigkeitsmultiplikator beträgt $multiplier")
 
     // Heldenliste
     val helden = listOf(
-        Frabo("Frabo", 75),
-        Held("Dogahn", 85),
-        Movin("Movin", 40),
+
+        Frabo("Frabo", 65),
+        Held("Dogahn", 95),
+        Movin("Movin", 30),
         Held("Redfuhl", 35)
     )
 
@@ -90,34 +94,31 @@ fun main() {
 
     // Hier beginnt der Kampf
     // Es erfolg auf mehrere Klassen ein Zugriff zum Beispiel auf zugriff auf Beutel von Frabos interen Beutel mit den Funktionen heilen
-    while (gegner.gesundheit > 0 && helden.all { it.gesundheit > 0 }) {
+    while (gegner.gesundheit > 0 && helden.any { it.gesundheit > 0 }) {
         println("\u001b[93mWähle einen Helden aus (1-4):\u001b[0m")
 
         val auswahl = readln()?.toIntOrNull()
 
         if (auswahl in 1..4) {
             val held = helden[auswahl?.minus(1)!!]
-
             if (held.gesundheit <= 0) {
                 println("\u001b[31m${held.name} ist bereits besiegt.\u001b[0m")
                 continue
             }
-
             // Anwenden der Verstärkung. Wird nur aller 4 Runden angewendet. Aufgerufen aus Beutel
             if (runde % 4 == 0 && held is Held) {
                 val verstaerkung = held.beutel.verstaerkung(8)
                 println("${held.name} hat eine Verstärkung von $verstaerkung erhalten.")
             }
-                // Hier beginnt die Heilung aus dem eigenen Beutel
+                // Hier beginnt die Heilung aus dem eigenen Beutel von Frabo
             if (runde % 3 == 0 && held is Frabo) { //Rundenzähler
                 println("Möchten Sie heilen? (j/n)")  // Abfrage zur Heilung
                 val heilen = readln()
-
                 if (heilen == "j") {
                     // Alle Helden Heilen
                     println("Möchten Sie alle Helden heilen? (j/n)")
                     val alleHeilen = readln()
-                    // Alle werden geheilt, außer bei Eingabe 'n' wird nur Der Frabo geheilt Ausgabe in Zeile
+                    // Alle werden geheilt, außer bei Eingabe 'n' wird nur der Frabo geheilt Ausgabe in Zeile
                     if (alleHeilen == "j") {
                         held.heileAlle(helden)
                     } else {
@@ -127,15 +128,15 @@ fun main() {
                     continue
                 }
             }
-
+            // Held Attacke
             val damage = held.attack()
             gegner.verteidigen(damage)
-
             if (held.gesundheit > 0) {
+                // Gegner Attacke
                 val gegnerDamage = gegner.attack()
                 println("${gegner.name} greift an und verursacht ${gegnerDamage} Schaden!")
                 held.verteidigen(gegnerDamage)
-
+                // Am Anfang wird Helfer gerufen, danach nicht mehr!
                 if (!gegner.helferEingesetzt) {
                     val helferDamage = gegner.rufeHelfer()
                     println("Goblin greift an und verursacht ${helferDamage} Schaden!")
