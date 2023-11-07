@@ -16,11 +16,11 @@ fun main() {
 
     // Geschichte aus 40.000
     println(
-        "${blue}  Black World ist eine düstere Gegend wo nie ein normaler Mensch 4041 sich hin traut würde. Den hinter Ebene " +
+        "${blue}  Black World ist eine düstere Gegend wo nie ein normaler Mensch, um 4041 sich hintrauen würde. Den hinter Ebene " +
                 "von Down Town fängt die Bergwelt an wo die Orgz und Goblins herrschen. Selbst die Zwerge vermeiden nach " +
                 "Black World zu gehen. Die Black Orgz, sind kräftiger wie ein Panzer, so sagt man. Von dort ist noch keiner " +
-                "zurückgekehrt, der je etwas berichten könnte. Doch im im Märzen 4041 ist die Tochter des Chefs vom Clan " +
-                "der Black Marins von Goblins entführt wurden. Die Black Marins sind Spezialisten auf die Verteidigung " +
+                "zurückgekehrt, der je etwas berichten könnte. Doch im im Märzen 4041 ist die Tochter des Chefs, vom Clan " +
+                "der Black Marins, von Goblins entführt wurden. Die Black Marins sind Spezialisten auf die Verteidigung " +
                 "ausgebildet, um gegen Orgz und Goblins zu kämpfen. Sie sind mit einer besonderen Ausrüstung unterwegs, " +
                 "diese hat vielerlei Vorzüge zum Schutz und bei starken Angriffen. Boss in Black World gibt es den " +
                 "mächtigsten Orgz aller Zeiten, so berichtet die Chronik. Dieser beherrscht diesen Teil der Welt. Aber " +
@@ -32,9 +32,11 @@ fun main() {
                 "und den Überblick verschaffen ist er ist in Black World geboren und wurde von Frabo aufgezogen. Movin hat " +
                 "Dogahn ein Reitrüstung gebaut, wo Frabo mit reisen konnte und Dogahn geschützt ist vor Angriffen. Diese " +
                 "drei begeben sich auf dem Weg um die Tochter des Chefs zu finden und nach Hause zubringen. Der Magische " +
-                "Schmied mit seinem Motorrad Redfuhl was so eineige Geheimnisse verbirgt. Frabo hebt mit dem Drachen Dogahn " +
-                "ab und bildet die Vorhut aus der Luft, so können Sie die nicht so leicht aufgespührt. Sie bewegen sich auf " +
-                "den einzigen Weg nach Kleinau, Kleinau ist ein Zwergendorf in den Bergen.\n ${underline}${cyan}Wir starten jetzt in 3 Sekunden! ${reset}"
+                "Schmied mit seinem Motorrad Redfuhl was so einige Geheimnisse verbirgt. Frabo hebt mit dem Drachen Dogahn " +
+                "ab und bildet die Vorhut aus der Luft, so können Sie nicht so leicht aufgespürt werden. Sie bewegen sich auf " +
+                "den einzigen Weg nach Kleinau, Kleinau ist ein Zwergen Dorf in den Bergen. Mögen die drei den Boss der " +
+                "Black Orgz besiegen und die Tochter des Chefs befreien.\n ${underline}${cyan}Wir starten jetzt in " +
+                "3 Sekunden! ${reset}"
     )
 
 
