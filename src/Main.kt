@@ -109,7 +109,7 @@ fun main() {
             }
             // Anwenden der Verstärkung. Wird nur aller 4 Runden angewendet. Aufgerufen aus Beutel
             if (runde % 4 == 0 && held is Held) {
-                val verstaerkung = held.beutel.verstaerkung(8)
+                val verstaerkung = held.beutel.verstaerkung(10)
                 println("${held.name} hat eine Verstärkung von $verstaerkung erhalten.")
             }
                 // Hier beginnt die Heilung aus dem eigenen Beutel von Frabo
@@ -146,10 +146,11 @@ fun main() {
                 }
             }
         } else {
-            println("$magenta Ungültige Auswahl.$reset")
+            println("$magenta Ungültige Auswahl.$reset") //  Wird angezeigt, wenn der Wert =0 oder Wert >4 ist, auch
+                                                         // wenn der Wert nicht eingegeben wurde
         }
 
-        runde++
+        runde++ // Runden werden hier erhöht für den Heilzauber (alle 3 Runden) und die Verstärkung (aller 4 Runden)
     }
 
     if (gegner.gesundheit <= 0) { // Hat der Gegner keine Gesundheitspunkte, wir diese Meldung ausgegeben
