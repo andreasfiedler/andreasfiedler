@@ -32,13 +32,13 @@ fun main() {
                 "drei begeben sich auf dem Weg um die Tochter des Chefs zu finden und nach Hause zubringen. Der Magische " +
                 "Schmied mit seinem Motorrad Redfuhl was so eineige Geheimnisse verbirgt. Frabo hebt mit dem Drachen Dogahn " +
                 "ab und bildet die Vorhut aus der Luft, so können Sie die nicht so leicht aufgespührt. Sie bewegen sich auf " +
-                "den einzigen Weg nach Kleinau, Kleinau ist ein Zwergendorf in den Bergen.\n ${underline}${cyan}Wir starten jetzt in 5 Sekunden! ${reset}"
+                "den einzigen Weg nach Kleinau, Kleinau ist ein Zwergendorf in den Bergen.\n ${underline}${cyan}Wir starten jetzt in 3 Sekunden! ${reset}"
     )
 
 
     // Start Timer, Timer ist Versuchsweise ein gebaut.
     val timer = Timer()
-    var seconds = 5 // Die Anzahl der Sekunden für den Countdown
+    var seconds = 3 // Die Anzahl der Sekunden für den Countdown
 
     timer.scheduleAtFixedRate(object : TimerTask() {
         override fun run() {
