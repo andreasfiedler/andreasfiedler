@@ -2,7 +2,7 @@ Black World ist eine düstere Gegend wo nie ein normaler Mensch, um 4041 sich hi
 
 Spielaufbau
 
-Das Spiel wird in der Main gestartet,ist in unterschiedliche Klassen auf geteilt.
+Das Spiel wird in der Main gestartet, ist in unterschiedliche Klassen auf geteilt.
 
       * Klasse Held
            * Klasse Beutel = für alle Helden zur Heldenverstärkung
