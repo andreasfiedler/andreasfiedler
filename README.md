@@ -10,7 +10,8 @@ Das Spiel wird in der Main gestartet,ist in unterschiedliche Klassen auf geteilt
            * Klasse Dogahn = Drache 
            * Klasse Movin = Magischerschmied 
                 * Klasse Redfuhl = Motorad vom Magischenschmied mit Eigenleben
-           
+
+     * Klasse Gegner = Orgz und Helfer Goblin 
 
 ![The Black World](https://github.com/andreasfiedler/andreasfiedler/assets/144686125/caedb107-da7a-4478-b935-c4756a8e7baf)
 
