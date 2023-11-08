@@ -17,7 +17,7 @@ Das Spiel wird in der Main gestartet, ist in unterschiedliche Klassen auf geteil
 
 Spielablauf:
 
-Der Spieler gibt nach der Start Sequenz von 3 Sekunden hat der Spieler sein Spielstäke ein zu stellen. Ausgewählt werden kann zwischen Leicht, Mittel und Schwer. Nach der Auswahl wird ein Held ausgewählt mit Int Werten zwischen 1 bis 4  1) Zauberer Frabo ; 2) Drache Dogahn , 3 ) Magischerschmied Movin ; 4) sein Begleiter das Magische Motorrad Redfuhl. Jeder hat seine Attacken die zufällig gewählt werden mit zufälliger Stärke. Da ein Held nicht immer über die gleiche Kaft verfügt wird aller 4 Runden eine Karftverstärkung hinzugefügt. Frabo erhält die Möglichkeit aller 3 Runden einen Heilzauber anzuwenden.
+Der Spieler gibt nach der Start Sequenz von 3 Sekunden hat der Spieler sein Spielstäke ein zu stellen. Ausgewählt werden kann zwischen Leicht, Mittel und Schwer. Nach der Auswahl wird ein Held ausgewählt mit Int Werten zwischen 1 bis 4  1) Zauberer Frabo ; 2) Drache Dogahn , 3 ) Magischerschmied Movin ; 4) sein Begleiter das Magische Motorrad Redfuhl. Jeder hat seine Attacken die zufällig gewählt werden mit zufälliger Stärke. Da ein Held nicht immer über die gleiche Kaft verfügt wird aller 4 Runden eine Karftverstärkung hinzugefügt. Frabo erhält die Möglichkeit aller 3 Runden einen Heilzauber anzuwenden. Gewonnen ist der Kampf, wenn Helden oder Orgs und sein Helfer keine Gesundheitspunkte haben.
 
 
 ![The Black World](https://github.com/andreasfiedler/andreasfiedler/assets/144686125/caedb107-da7a-4478-b935-c4756a8e7baf)
